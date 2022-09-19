@@ -5,8 +5,14 @@ import Menu from "./menu";
 import NotFound from "./not_found";
 import Targets from "./targets";
 import AddTarget from "./add_target";
+import { useDispatch } from "react-redux";
+import { ACTION_SET_URL } from "./state_actions";
 
 export default function Router() {
+
+    let url = localStorage.getItem("url")
+    const dispatch = useDispatch()
+    dispatch({ type: ACTION_SET_URL, payload: url })
 
     return <BrowserRouter>
         <Routes>

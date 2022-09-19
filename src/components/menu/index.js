@@ -1,7 +1,6 @@
 import { Box, CssBaseline } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
-import { ServerAddr } from '../server'
 import { useDispatch, useSelector } from 'react-redux';
 import { ACTION_LOGOUT } from '../state_actions'
 import { useEffect, useState } from 'react';
@@ -18,6 +17,7 @@ export default function Menu(props) {
     const navigate = useNavigate();
     const user = useSelector(state => state.user)
     const loggedIn = useSelector(state => state.loggedIn)
+    const url = useSelector(state => state.url)
     const dispatch = useDispatch()
     const [snack, setSnack] = useState(defaultSnackVal)
 
@@ -33,7 +33,7 @@ export default function Menu(props) {
 
 
     const callLogout = () => {
-        axios.post(ServerAddr + '/user/logout', {}, {
+        axios.post(url + '/user/logout', {}, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': user.token

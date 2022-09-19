@@ -2,7 +2,6 @@ import { Grid, Typography, AppBar, Toolbar, useScrollTrigger } from "@mui/materi
 import { useState, cloneElement } from "react";
 import Form from "./form";
 import axios from 'axios'
-import { ServerAddr } from '../server'
 import { useDispatch, useSelector } from 'react-redux'
 import { ACTION_REMOVE_TARGETS } from "../state_actions";
 import { useNavigate } from "react-router-dom";
@@ -37,6 +36,7 @@ export default function AddTarget(props) {
     const [values, setValues] = useState(defaultValues)
     const [stat, setStat] = useState(defaultStat)
     const user = useSelector(state => state.user)
+    const url = useSelector(state => state.url)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -54,7 +54,7 @@ export default function AddTarget(props) {
             ...defaultStat,
             loading: true,
         })
-        axios.post(ServerAddr + '/target/', {
+        axios.post(url + '/target/', {
             name: values.name,
             target_type: values.targettype,
             protocol: values.protocol,

@@ -59,7 +59,8 @@ export default function SetUrl(props) {
             >
                 <TextField
                     id="outlined-basic"
-                    label="Name"
+                    label="Set URL"
+                    placeholder="Exclude trailing slash (/)"
                     variant="outlined"
                     color="text"
                     fullWidth

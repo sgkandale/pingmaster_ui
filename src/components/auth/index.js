@@ -5,8 +5,7 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import axios from 'axios'
-import { ServerAddr } from '../server'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ACTION_LOGIN } from "../state_actions";
 import { useNavigate } from 'react-router-dom';
 
@@ -20,7 +19,8 @@ export default function Auth() {
 		error: ""
 	})
 	const dispatch = useDispatch()
-	const navigate = useNavigate();
+	const navigate = useNavigate()
+	const url = useSelector(state => state.url)
 
 	const handleChange = (prop) => (event) => {
 		setValues({
@@ -51,7 +51,7 @@ export default function Auth() {
 		if (view === "Register") {
 			addr = '/user/'
 		}
-		axios.post(ServerAddr + addr, {
+		axios.post(url + addr, {
 			name: values.name,
 			password: values.password,
 		}, {
