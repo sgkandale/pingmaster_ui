@@ -1,8 +1,8 @@
 import { createStore } from "redux";
-import { ACTION_LOGIN, ACTION_LOGOUT, ACTION_REMOVE_TARGETS, ACTION_SET_URL } from "./state_actions";
+import { ACTION_LOGIN, ACTION_LOGOUT, ACTION_REMOVE_TARGETS, ACTION_REMOVE_URL, ACTION_SET_URL } from "./state_actions";
 
 var initialState = {
-    url: "",
+    url: null,
     loggedIn: false,
     user: {},
     targets: [],
@@ -31,6 +31,12 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 url: action.payload,
+            }
+
+        case ACTION_REMOVE_URL:
+            return {
+                ...state,
+                url: "",
             }
 
         default:

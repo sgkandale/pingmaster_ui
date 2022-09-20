@@ -6,7 +6,7 @@ import {
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
-import { ACTION_LOGIN } from "../state_actions";
+import { ACTION_LOGIN, ACTION_REMOVE_URL } from "../state_actions";
 import { useNavigate } from 'react-router-dom';
 
 export default function Auth() {
@@ -77,6 +77,10 @@ export default function Auth() {
 			});
 	}
 
+	const handleDeleteBackendUrl = () => {
+		localStorage.removeItem("url")
+		dispatch({ type: ACTION_REMOVE_URL })
+	}
 
 	return <Grid
 		container
@@ -217,5 +221,13 @@ export default function Auth() {
 				</Typography>
 			</Grid>
 		</Box>
+		<Button
+			sx={{
+				mt: 5
+			}}
+			onClick={handleDeleteBackendUrl}
+		>
+			Delete Backend URL
+		</Button>
 	</Grid>
 }
