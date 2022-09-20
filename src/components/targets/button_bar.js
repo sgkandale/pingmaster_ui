@@ -10,6 +10,7 @@ export default function ButtonBar(props) {
         direction="row"
         justifyContent="flex-start"
         alignItems="center"
+        sx={{ mb: 4 }}
     >
         <Button
             variant="contained"

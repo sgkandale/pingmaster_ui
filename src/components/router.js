@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ACTION_REMOVE_URL, ACTION_SET_URL } from "./state_actions";
 import SetUrl from './set_url';
 import { useEffect } from "react";
+import Target from "./target";
 
 export default function Router() {
     const url = useSelector(state => state.url)
@@ -44,6 +45,12 @@ export default function Router() {
                         path="/"
                         element={
                             <Menu viewElement={<Overview />} />
+                        }
+                    />
+                    <Route
+                        path="/target"
+                        element={
+                            <Menu viewElement={<Target />} />
                         }
                     />
                     <Route
