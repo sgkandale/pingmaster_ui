@@ -4,7 +4,10 @@ import { ACTION_ADD_TARGETS, ACTION_LOGIN, ACTION_LOGOUT, ACTION_REMOVE_TARGETS,
 var initialState = {
     url: null,
     loggedIn: false,
-    user: {},
+    user: {
+        // name: "Ramesh 12",
+        // token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjM3MjQxNTMsImlhdCI6MTY2MzcyMDU1MywiaXNzIjoicGluZ21hc3RlciIsImp0aSI6ImJmNDUxZTM2LWQxNzItNGNiYi04MWE5LTljMjliOTE2ZTJjOSIsIm5hbWUiOiJSYW1lc2ggMTIiLCJuYmYiOjE2NjM3MjA1NTMsInN1YiI6ImFjY2VzcyB0byBwaW5nbWFzdGVyIn0.7uin6c6xXCarhs0OKXlfiC4bxTFL7sSiOCNW38KnD_4"
+    },
     targets: [],
 }
 

@@ -61,6 +61,7 @@ export default function Auth() {
 			}
 		})
 			.then(response => {
+				console.log(response)
 				setValues({
 					...values,
 					loading: false,

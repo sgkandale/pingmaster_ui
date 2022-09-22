@@ -13,7 +13,7 @@ export default function EachTarget(props) {
             cursor: 'pointer'
         }}
         elevation={0}
-        onClick={() => navigate('/target?id=' + props.target.name)}
+        onClick={() => navigate('/target?name=' + props.target.name)}
     >
         <CardContent>
             <Typography variant="h4">
@@ -23,7 +23,7 @@ export default function EachTarget(props) {
                 {props.target.target_type}
             </Typography>
             <Typography variant="body1" >
-                {props.target.protocol}://{props.target.host_address}
+                {props.target.protocol}://{props.target.host_address}{props.target.port > 0 ? `:${props.target.port}` : ""}
             </Typography>
         </CardContent>
     </Card>

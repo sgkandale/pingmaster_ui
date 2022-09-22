@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material"
 import { useEffect, useState } from "react"
-import NonSuccess from "./non_success"
+import NonSuccess from "../others/non_success"
 import ButtonBar from "./button_bar"
 import { useDispatch, useSelector } from 'react-redux'
 import ListTargets from "./list_targets"
@@ -38,7 +38,6 @@ export default function Targets() {
             }
         })
             .then(response => {
-                console.log(response)
                 setState({
                     ...defaultState,
                     loading: false,
