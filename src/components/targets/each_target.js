@@ -1,5 +1,5 @@
 import { Card, CardContent, Typography } from "@mui/material"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, createSearchParams } from 'react-router-dom'
 
 export default function EachTarget(props) {
     const navigate = useNavigate()
@@ -13,7 +13,12 @@ export default function EachTarget(props) {
             cursor: 'pointer'
         }}
         elevation={0}
-        onClick={() => navigate('/target?name=' + props.target.name)}
+        onClick={() => navigate({
+            pathname: "/target",
+            search: createSearchParams({
+                name: props.target.name
+            }).toString()
+        })}
     >
         <CardContent>
             <Typography variant="h4">
@@ -26,5 +31,5 @@ export default function EachTarget(props) {
                 {props.target.protocol}://{props.target.host_address}{props.target.port > 0 ? `:${props.target.port}` : ""}
             </Typography>
         </CardContent>
-    </Card>
+    </ Card>
 }
