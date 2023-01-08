@@ -61,7 +61,6 @@ export default function Auth() {
 			}
 		})
 			.then(response => {
-				console.log(response)
 				setValues({
 					...values,
 					loading: false,
@@ -224,7 +223,8 @@ export default function Auth() {
 		</Box>
 		<Button
 			sx={{
-				mt: 5
+				mt: 5,
+				textTransform: 'none'
 			}}
 			onClick={handleDeleteBackendUrl}
 		>
