@@ -1,5 +1,6 @@
 import { Edit, Refresh } from "@mui/icons-material";
 import { Box, Grid, IconButton, Typography } from "@mui/material";
+import ZoomLevel from "./zoom_level";
 
 export default function Details(props) {
     const { target } = props
@@ -52,7 +53,11 @@ export default function Details(props) {
                     Ping Timeout : {target.ping_timeout}
                 </Typography>
             </Box>
-            <Box sx={{ width: '100px' }}>
+            <Box sx={{ width: 150 }}>
+                <ZoomLevel
+                    zoomLevel={props.zoomLevel}
+                    changeZoomLevel={props.changeZoomLevel}
+                />
             </Box>
         </Grid>
     </Box>
