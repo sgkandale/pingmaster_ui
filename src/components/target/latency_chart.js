@@ -16,21 +16,6 @@ ChartJS.register(
 )
 
 
-
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-const data = {
-    labels,
-    datasets: [
-        {
-            label: 'Latency',
-            data: labels.map(() => '100'),
-            borderColor: '#5B5BFF',
-            backgroundColor: '#AAAAFF',
-        }
-    ],
-};
-
 const options = {
     responsive: true,
     plugins: {
@@ -45,14 +30,32 @@ const options = {
 }
 
 export default function LatencyChart(props) {
-    let newVal = {}
-    const newTest = () => {
-        newVal = labels.map(() => '100')
+
+
+    var labels = []
+    let labelData = []
+    let i = 0
+    for (i = 0; i < props.pings.length; i++) {
+        labels.push(props.pings[i].timestamp)
+        labelData.push(props.pings[i].duration)
     }
-    newTest()
-    console.log(newVal)
+
+    const data = {
+        labels,
+        datasets: [
+            {
+                label: 'Latency',
+                data: labelData,
+                borderColor: '#5B5BFF',
+                backgroundColor: '#AAAAFF',
+            }
+        ],
+    };
 
     return <Box >
-        <Line options={options} data={data} />
+        <Line
+            options={options}
+            data={data}
+        />
     </Box>
 }

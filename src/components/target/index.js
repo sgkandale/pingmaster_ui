@@ -114,7 +114,6 @@ export default function Target() {
             return
         }
         fetchTarget(name)
-        fetchPings(name)
     }, [])
 
     useEffect(() => {
